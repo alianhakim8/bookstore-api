@@ -34,7 +34,8 @@ run this command :
 
 Setup Virtual Host (Windows 10 xampp) 
 add this script to xampp/apache/conf/extra/http-vhost.conf
-``` <VirtualHost *:8081>
+``` 
+<VirtualHost *:8081>
     ServerName bookstore-api
     DocumentRoot "D:/xampp/htdocs/bookstore-api/public"
     SetEnv APPLICATION_ENV "development"
