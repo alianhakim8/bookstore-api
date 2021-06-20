@@ -47,6 +47,10 @@ add this script to xampp/apache/conf/extra/http-vhost.conf
     </Directory>
 </VirtualHost> 
 ```
+add this script to C:\Windows\System32\drivers\etc\hosts (edit with admin privilege / run administator for windows)
+```
+    127.0.0.1 bookstore-api
+```
 
 
 ## Contributing
