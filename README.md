@@ -24,10 +24,13 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Instalation
 
 run this command : 
-> composer install
-> download/clone & import db bookstore_api.sql from repository to your localhost mysql
-> php artisan migrate
-> php artisan serve 
+> 1. composer install
+>
+> 2. download/clone & import db bookstore_api.sql from repository to your localhost mysql
+>
+> 3. php artisan migrate
+>
+> 4. php artisan serve 
 
 
 ## Contributing
