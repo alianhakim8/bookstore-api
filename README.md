@@ -32,6 +32,21 @@ run this command :
 >
 > 4. php artisan serve 
 
+Setup Virtual Host (Windows 10 xampp) 
+add this script to xampp/apache/conf/extra/http-vhost.conf
+``` <VirtualHost *:8081>
+    ServerName bookstore-api
+    DocumentRoot "D:/xampp/htdocs/bookstore-api/public"
+    SetEnv APPLICATION_ENV "development"
+    <Directory "D:/xampp/htdocs/bookstore-api/public">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost> 
+```
+
 
 ## Contributing
 
