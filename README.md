@@ -51,7 +51,170 @@ add this script to C:\Windows\System32\drivers\etc\hosts (edit with admin privil
 ```
     127.0.0.1 bookstore-api
 ```
+## Output
+Simple Get Request Example
+```
+{
+"status": "success",
+"message": "books data",
 
+"data": {
+"current_page": 1,
+
+"data": [
+
+        {
+        "id": 1,
+        "title": "Aut beatae iusto dolore ad",
+        "slug": "aut-beatae-iusto-dolore-ad",
+        "description": "Fugit nesciunt reprehenderit expedita amet. Labore voluptas nihil ea. In quaerat soluta aut repudiandae. Qui consequatur accusamus aut et. Facilis beatae eveniet dolores sint.",
+        "author": "Prof. Meta Homenick Sr.",
+        "publisher": "Kihn-Erdman",
+        "cover": "unavailable.jpg",
+        "price": 250000,
+        "weight": 0.5,
+        "views": 0,
+        "stock": 0,
+        "status": "PUBLISH",
+        "created_at": "2021-06-16T00:19:28.000000Z",
+
+        "updated_at": null,
+
+        "deleted_at": null
+        },
+
+        {
+        "id": 2,
+        "title": "Iusto occaecati voluptatem consequatur quod",
+        "slug": "iusto-occaecati-voluptatem-consequatur-quod",
+        "description": "Laudantium maiores et aliquid quibusdam explicabo voluptas officia. Doloremque qui expedita rerum eveniet sunt omnis omnis. Aut exercitationem tempora et cupiditate dolores. Animi aperiam ut illum doloribus omnis.",
+        "author": "Alberto Douglas",
+        "publisher": "Schamberger-Shanahan",
+        "cover": "unavailable.jpg",
+        "price": 350000,
+        "weight": 0.5,
+        "views": 0,
+        "stock": 0,
+        "status": "PUBLISH",
+        "created_at": "2021-06-16T00:19:28.000000Z",
+
+        "updated_at": null,
+
+        "deleted_at": null
+        },
+
+        {
+        "id": 3,
+        "title": "Reiciendis dicta rerum voluptas",
+        "slug": "reiciendis-dicta-rerum-voluptas",
+        "description": "Ipsam voluptas error est nisi. Est tempora quaerat saepe nam sunt ducimus reiciendis fugiat. Nihil exercitationem eius ea et veniam fugit.",
+        "author": "Shane Hammes PhD",
+        "publisher": "Renner PLC",
+        "cover": "unavailable.jpg",
+        "price": 250000,
+        "weight": 0.5,
+        "views": 0,
+        "stock": 0,
+        "status": "PUBLISH",
+        "created_at": "2021-06-16T00:19:28.000000Z",
+
+        "updated_at": null,
+
+        "deleted_at": null
+        },
+
+        {
+        "id": 4,
+        "title": "Voluptatibus earum qui",
+        "slug": "voluptatibus-earum-qui",
+        "description": "Ipsam id facere esse dicta nisi. Qui et omnis natus porro. Quos ullam doloribus architecto ut id saepe. Sunt recusandae doloribus officia.",
+        "author": "Jacinto Russel",
+        "publisher": "Bartell, Hammes and Wyman",
+        "cover": "unavailable.jpg",
+        "price": 100000,
+        "weight": 0.5,
+        "views": 0,
+        "stock": 0,
+        "status": "PUBLISH",
+        "created_at": "2021-06-16T00:19:29.000000Z",
+
+        "updated_at": null,
+
+        "deleted_at": null
+        }
+],
+
+"first_page_url": "http://bookstore-api:8000/api/v1/books?page=1",
+"from": 1,
+"last_page": 7,
+"last_page_url": "http://bookstore-api:8000/api/v1/books?page=7",
+
+"links": [
+        {
+
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=1",
+        "label": "1",
+        "active": true
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=2",
+        "label": "2",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=3",
+        "label": "3",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=4",
+        "label": "4",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=5",
+        "label": "5",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=6",
+        "label": "6",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=7",
+        "label": "7",
+        "active": false
+        },
+
+        {
+        "url": "http://bookstore-api:8000/api/v1/books?page=2",
+        "label": "Next &raquo;",
+        "active": false
+        }
+        ],
+        "next_page_url": "http://bookstore-api:8000/api/v1/books?page=2",
+        "path": "http://bookstore-api:8000/api/v1/books",
+        "per_page": 4,
+
+        "prev_page_url": null,
+        "to": 4,
+        "total": 25
+        }
+    }
+```
 
 ## Contributing
 
