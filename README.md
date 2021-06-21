@@ -23,14 +23,16 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Instalation
 
-run this command : 
-> 1. composer install
+Follow this : 
+> 1. Download/clone this project && run this command : composer install
 >
-> 2. download/clone & import db bookstore_api.sql from repository to your localhost mysql
+> 2. import db bookstore_api.sql from repository to your localhost mysql
 >
-> 3. php artisan migrate
+> 3. Rename file .env[backup] to .env 
+> 
+> 4. run this command : php artisan migrate
 >
-> 4. php artisan serve 
+> 4. run this command : php artisan serve 
 
 Setup Virtual Host (Windows 10 xampp) 
 add this script to xampp/apache/conf/extra/http-vhost.conf
