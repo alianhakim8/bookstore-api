@@ -25,10 +25,10 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 Follow this : 
 > 1. Download/clone this project && run this command : composer install
->
-> 2. import db bookstore_api.sql from repository to your localhost mysql
->
-> 3. Rename file .env[backup] to .env 
+> 
+> 2. Rename file .env[backup] to .env 
+> 
+> 3. import db bookstore_api.sql from repository to your localhost mysql
 > 
 > 4. run this command : php artisan migrate
 >
