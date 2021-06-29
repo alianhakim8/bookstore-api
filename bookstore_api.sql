@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2021 at 01:46 PM
+-- Generation Time: Jun 29, 2021 at 06:39 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -90,6 +90,14 @@ CREATE TABLE `book_category` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `book_category`
+--
+
+INSERT INTO `book_category` (`id`, `book_id`, `category_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, NULL, NULL),
+(2, 2, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -811,11 +819,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `roles`, `address`, `city_id`, `province_id`, `phone`, `avatar`, `status`, `created_at`, `updated_at`, `api_token`) VALUES
-(1, 'Dr. Rosanna Kreiger', 'kiel09@example.com', NULL, '$2y$10$YE0IIdoVxWdLS8qB6U.46e/DLNpeu.f/mz9bMvVunSwxmlkjpfIWe', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\de649f4e2a8e9036026c8c329807c7ca.png', 'ACTIVE', '2021-06-15 17:19:25', NULL, NULL),
+(1, 'Alian Hakim', 'alian@mail.com', NULL, '$2y$10$YE0IIdoVxWdLS8qB6U.46e/DLNpeu.f/mz9bMvVunSwxmlkjpfIWe', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\de649f4e2a8e9036026c8c329807c7ca.png', 'ACTIVE', '2021-06-15 17:19:25', '2021-06-28 21:17:30', '1ZaeLUfUxReB0kGf9EW6fOEYf07JgKOm5p2EmaJOAWxYj6F4A4xNoz4LbIhj'),
 (2, 'Vicky Hirthe', 'bschmeler@example.net', NULL, '$2y$10$v5O3SrhnmuirrBfd7yltIurHZ.H2yboQrsWPWuWW3RZdskW4c53Ji', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\37e143092daab6de7b5b085b9d7363bf.png', 'ACTIVE', '2021-06-15 17:19:26', NULL, NULL),
 (3, 'Prof. Uriah Dibbert Sr.', 'vdietrich@example.org', NULL, '$2y$10$eIHSy/UGNe.8tIIdLyhHSubPiUPrrml1X5OJ//9WPR3odm3CatDPK', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\955229004940d31aec9c54a484b2b038.png', 'ACTIVE', '2021-06-15 17:19:26', NULL, NULL),
 (4, 'Oceane Breitenberg IV', 'zhaag@example.com', NULL, '$2y$10$7TV1XmpZKekM/zS5Ij2qAelFS1n.2HIMeHEacYut1yjhLmfsx8k5i', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\b044ecaa1c5e3e03a0a23fc2ed7d4e58.png', 'ACTIVE', '2021-06-15 17:19:27', NULL, NULL),
-(5, 'Russel Carter', 'koelpin.mandy@example.org', NULL, '$2y$10$bekltAz6kxVFvoKuI86hv.k05m.d/pHlKarnJfvdGxq73C/9Blm3y', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\aadeb97045a242026bc68b3d689da017.png', 'ACTIVE', '2021-06-15 17:19:27', NULL, NULL);
+(5, 'Russel Carter', 'koelpin.mandy@example.org', NULL, '$2y$10$bekltAz6kxVFvoKuI86hv.k05m.d/pHlKarnJfvdGxq73C/9Blm3y', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, '/xampp/htdocs/bookstore-api/public/images/users\\aadeb97045a242026bc68b3d689da017.png', 'ACTIVE', '2021-06-15 17:19:27', NULL, NULL),
+(7, 'Alian Hakim', 'Ali@gmail.com', NULL, '$2y$10$ehihhMpFi9Lqv8xSOqMLluk0RVvMZ53Y9sNZHgsWNVhpcW1ZSlfaK', '[\"CUSTOMER\"]', NULL, NULL, NULL, NULL, NULL, 'ACTIVE', '2021-06-21 19:05:16', '2021-06-21 19:05:31', 'IxN5AMcNetfer4sOkTB2V5K1GZhxNW5exhzWKLv1N0TsLOsoNCAk1Wwd2sp4');
 
 --
 -- Indexes for dumped tables
@@ -905,7 +914,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `book_category`
 --
 ALTER TABLE `book_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `book_order`
@@ -953,7 +962,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
