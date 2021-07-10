@@ -49,7 +49,8 @@ class BooksTableSeeder extends Seeder
                 'publisher' => $faker->company,
                 'cover' => 'unavailable.jpg',
                 'price' => mt_rand(1, 10) * 50000,
-                'weight' => 0.5,
+                'weight' => 1,
+                'stock' => 10,
                 'status' => 'PUBLISH',
                 'created_at' => \Carbon\Carbon::now(),
             ];

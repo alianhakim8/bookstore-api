@@ -89,7 +89,7 @@ class ShopController extends Controller
         $idx = 0;
         foreach ($carts as $cart) {
             $id = (int)$cart['id'];
-            $quantity = (int) $cart['quantity'];
+            $quantity = (int)$cart['quantity'];
             $total['quantity_before'] += $quantity;
             $book = Book::find($id);
             if ($book) {
@@ -153,6 +153,7 @@ class ShopController extends Controller
         $status = "error";
         $message = "";
         $data = [];
+
         // Validasi kelengkapan data
         $this->validate($request, [
             'courier' => 'required',
@@ -165,8 +166,8 @@ class ShopController extends Controller
                 // hardcode, silakan sesuaikan dengan asal pengiriman barangnya
                 $origin = 153; // Jaksel
                 $courier = $request->courier;
-                $carts = $request->carts;
-                $carts = json_decode($carts, true); // transformasi dari json menjadi array
+                $carts_ = $request->carts;
+                $carts = json_decode($carts_, true); // transformasi dari json menjadi array
 
                 // validasi data belanja
                 $validCart = $this->validateCart($carts);
@@ -174,6 +175,8 @@ class ShopController extends Controller
                 $data['total'] = $validCart['total'];
                 $quantity_different = $data['total']['quantity_before'] <> $data['total']['quantity'];
                 $weight = $validCart['total']['weight'] * 1000;
+
+
                 if ($weight > 0) {
                     // request courier service API Raja Ongkir
                     $parameter = [
@@ -188,30 +191,38 @@ class ShopController extends Controller
                     if ($respon_services['error'] == null) {
                         $services = [];
                         $response = json_decode($respon_services['response']);
-                        $costs = $response->rajaongkir->results[0]->costs;
-                        foreach ($costs as $cost) {
-                            $service_name = $cost->service;
-                            $service_cost = $cost->cost[0]->value;
-                            $service_estimation = str_replace('hari', '', trim($cost->cost[0]->etd));
-                            $services[] = [
-                                'service' => $service_name,
-                                'cost' => $service_cost,
-                                'estimation' => $service_estimation,
-                                'resume' => $service_name . '[Rp. ' . number_format($service_cost) . ', Etd: ' . $cost->cost[0]->etd . ' day(s)]'
-                            ];
-                        }
-                        // Response
-                        if (count($services) > 0) {
-                            $data['services'] = $services;
-                            $status = "success";
-                            $message = "getting service success";
+                        if ($response->rajaongkir->status->code == 400) {
+                            $message = 'Gagal mendapatkan service, bad request';
                         } else {
-                            $message = "courier service unavailable";
-                        }
-                        // Ketika jumlah beli melebihi jumlah stock maka tampilkan warning
-                        if ($quantity_different) {
-                            $status = "warning";
-                            $message = "Check cart data " . $message;
+                            // var_dump($response->rajaongkir->status->code == 400);
+                            // die;
+                            $costs = $response->rajaongkir->results[0]->costs;
+                            // var_dump($costs);
+                            // die;
+                            foreach ($costs as $cost) {
+                                $service_name = $cost->service;
+                                $service_cost = $cost->cost[0]->value;
+                                $service_estimation = str_replace('hari', '', trim($cost->cost[0]->etd));
+                                $services[] = [
+                                    'service' => $service_name,
+                                    'cost' => $service_cost,
+                                    'estimation' => $service_estimation,
+                                    'resume' => $service_name . '[Rp. ' . number_format($service_cost) . ', Etd: ' . $cost->cost[0]->etd . ' day(s)]'
+                                ];
+                            }
+                            // Response
+                            if (count($services) > 0) {
+                                $data['services'] = $services;
+                                $status = "success";
+                                $message = "getting service success";
+                            } else {
+                                $message = "courier service unavailable";
+                            }
+                            // Ketika jumlah beli melebihi jumlah stock maka tampilkan warning
+                            if ($quantity_different) {
+                                $status = "warning";
+                                $message = "Check cart data " . $message;
+                            }
                         }
                     } else {
                         $message = "CURL Error #:" . $respon_services['error'];
@@ -241,6 +252,7 @@ class ShopController extends Controller
         $data = [];
         $user = Auth::user();
         if ($user) {
+            // validasi kelengkapan data
             $this->validate($request, [
                 'courier' => 'required',
                 'service' => 'required',
@@ -250,7 +262,7 @@ class ShopController extends Controller
             DB::beginTransaction();
             try {
                 // prepare data
-                $origin = 153;
+                $origin = 153; // jakarta selatan
                 $destination = $user->city_id;
                 if ($destination <= 0) $error++;
                 $courier = $request->courier;
@@ -294,7 +306,7 @@ class ShopController extends Controller
                         }
                     }
                     $totalBill = 0;
-                    $weight = $total_weight * 1000;
+                    $weight = $total_weight * 1000; // to gram
                     if ($weight <= 0) {
                         $error++;
                         throw new \Exception("Weight Null");
@@ -313,6 +325,7 @@ class ShopController extends Controller
                         throw new \Exception("Courier service unavailable");
                     }
                     $response = json_decode($data_cost['response']);
+
                     $costs = $response->rajaongkir->results[0]->costs;
                     $service_cost = 0;
                     foreach ($costs as $cost) {
