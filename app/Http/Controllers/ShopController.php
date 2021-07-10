@@ -251,6 +251,14 @@ class ShopController extends Controller
         $message = '';
         $data = [];
         $user = Auth::user();
+
+
+
+        // var_dump($request->all());
+        // die;
+
+        // var_dump($request->header('Authorization'));
+        // die;
         if ($user) {
             // validasi kelengkapan data
             $this->validate($request, [

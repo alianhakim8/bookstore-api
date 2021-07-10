@@ -58,12 +58,13 @@ Route::prefix('v1')->group(function () {
     Route::get('provinces', [ShopController::class, 'provinces']);
     Route::get('cities', [ShopController::class, 'cities']);
     Route::get('couriers', [ShopController::class, 'couriers']);
-    Route::middleware('auth:api')->group(function () {
+    Route::middleware('cors')->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('shipping', [ShopController::class, 'shipping']);
         Route::post('services', [ShopController::class, 'services']);
-        Route::post('payment', [ShopController::class, 'payment']);
         Route::get('my-order', [ShopController::class, 'myorder']);
+
+        Route::post('payment', [ShopController::class, 'payment']);
     });
 });
 
